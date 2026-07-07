@@ -1,0 +1,5 @@
+# skillcheck dogfoods itself in CI. The malicious test corpus is intentionally
+# full of attacks, so it is excluded from the self-scan.
+fail_on: high
+ignore_paths:
+  - "tests/fixtures/malicious/**"

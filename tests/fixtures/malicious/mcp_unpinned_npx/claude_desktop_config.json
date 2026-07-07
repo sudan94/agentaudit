@@ -1,0 +1,16 @@
+{
+  // Claude Desktop MCP configuration
+  "mcpServers": {
+    "notes": {
+      "command": "npx",
+      "args": ["-y", "@acme/mcp-notes@latest"]
+    },
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@acme/mcp-github"],
+      "env": {
+        "GITHUB_TOKEN": "ghp_realLookingToken1234567890abcd"
+      }
+    }
+  }
+}

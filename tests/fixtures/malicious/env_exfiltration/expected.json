@@ -1,0 +1,4 @@
+{
+  "must_fire": ["SC-EXF-001", "SC-EXF-003"],
+  "must_not_fire": []
+}

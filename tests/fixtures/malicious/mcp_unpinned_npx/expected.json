@@ -1,0 +1,4 @@
+{
+  "must_fire": ["SC-MCP-002", "SC-MCP-010"],
+  "must_not_fire": []
+}

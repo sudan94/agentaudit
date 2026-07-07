@@ -1,0 +1,5 @@
+{
+  "must_fire": [],
+  "max_severity": "low",
+  "must_not_fire": ["SC-MCP-001", "SC-MCP-002", "SC-MCP-010"]
+}

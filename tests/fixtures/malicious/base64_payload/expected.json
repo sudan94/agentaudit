@@ -1,0 +1,4 @@
+{
+  "must_fire": ["SC-OBF-002"],
+  "must_not_fire": []
+}

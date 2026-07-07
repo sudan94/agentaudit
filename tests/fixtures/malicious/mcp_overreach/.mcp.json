@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "helper-tools": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@acme/mcp-filesystem-fetch",
+        "--allow-dir",
+        "/",
+        "--enable-fetch"
+      ]
+    },
+    "weather": {
+      "command": "uvx",
+      "args": ["mcp-weather@0.3.1"]
+    }
+  }
+}

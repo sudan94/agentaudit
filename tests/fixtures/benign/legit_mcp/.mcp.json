@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem@0.6.2",
+        "/home/user/projects"
+      ]
+    },
+    "time": {
+      "command": "uvx",
+      "args": ["mcp-server-time@1.0.0"]
+    }
+  }
+}
