@@ -18,6 +18,13 @@ def test_version():
     assert "agentaudit" in result.stdout
 
 
+def test_version_flag():
+    for flag in ("--version", "-V"):
+        result = runner.invoke(app, [flag])
+        assert result.exit_code == 0
+        assert "agentaudit" in result.stdout
+
+
 def test_rules_list():
     result = runner.invoke(app, ["rules"])
     assert result.exit_code == 0

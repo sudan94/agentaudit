@@ -45,6 +45,26 @@ EXIT_FINDINGS = 1
 EXIT_ERROR = 2
 
 
+def _version_callback(value: bool) -> None:
+    if value:
+        _stdout.print(f"agentaudit {__version__}")
+        raise typer.Exit()
+
+
+@app.callback()
+def _root(
+    version: bool = typer.Option(
+        False,
+        "--version",
+        "-V",
+        help="Show the agentaudit version and exit.",
+        callback=_version_callback,
+        is_eager=True,
+    ),
+) -> None:
+    """Read-only security scanner for AI agent skills, rule files, and MCP configs."""
+
+
 @app.command("scan")
 def scan_command(
     path: Path = typer.Argument(Path("."), help="Directory or file to scan."),

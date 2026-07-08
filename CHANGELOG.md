@@ -6,6 +6,18 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.1.2] — 2026-07-08
+
+### Added
+- Top-level `--version` / `-V` flag (previously only the `version` subcommand).
+- **AA-EXF-007** — detects data smuggled into an image URL (zero-click
+  markdown/HTML image exfiltration).
+- **AA-EXF-008** — detects DNS-tunnel exfiltration (DNS lookups whose hostname
+  is built from command substitution or an encoder).
+- **AA-INJ-008** — detects attempts to extract the system prompt or hidden
+  instructions (prompt-leak reconnaissance).
+- Fixture coverage for each new rule.
+
 ## [0.1.1] — 2026-07-08
 
 ### Changed

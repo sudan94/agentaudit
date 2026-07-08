@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "agentaudit-scanner"
-version = "0.1.1"
+version = "0.1.2"
 description = "A read-only security scanner for AI agent skills, rule files, and MCP configurations. Detects prompt injections, hidden instructions, and dangerous permissions before your agent obeys them."
 readme = "README.md"
 requires-python = ">=3.11"
