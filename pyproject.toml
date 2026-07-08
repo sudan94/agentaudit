@@ -45,7 +45,7 @@ dev = ["pytest>=8.0", "pytest-cov>=5.0", "ruff>=0.6"]
 Homepage = "https://github.com/sudan94/agentaudit"
 Repository = "https://github.com/sudan94/agentaudit"
 Issues = "https://github.com/sudan94/agentaudit/issues"
-Changelog = "https://github.com/sudan94/agentaudit/blob/main/CHANGELOG.md"
+Changelog = "https://github.com/sudan94/agentaudit/blob/master/CHANGELOG.md"
 
 [project.scripts]
 agentaudit = "agentaudit.cli:app"

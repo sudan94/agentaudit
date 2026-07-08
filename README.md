@@ -77,7 +77,7 @@ Run `agentaudit rules` to see every detection rule, or `agentaudit rules --expla
 ## GitHub Action
 
 ```yaml
-- uses: sudan94/agentaudit@v0.1.0
+- uses: sudan94/agentaudit@v0.1.1
   with:
     path: .
     fail-on: high

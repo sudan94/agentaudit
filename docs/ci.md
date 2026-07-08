@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: sudan94/agentaudit@v0.1.0
+      - uses: sudan94/agentaudit@v0.1.1
         with:
           path: .
           fail-on: high
