@@ -12,13 +12,13 @@ A clear description of the bug.
 The command you ran and, if possible, a minimal file that triggers it:
 
 ```
-skillcheck scan ...
+agentaudit scan ...
 ```
 
 **Expected behavior**
 What you expected instead.
 
 **Environment**
-- skillcheck version (`skillcheck version`):
+- agentaudit version (`agentaudit version`):
 - Python version:
 - OS:

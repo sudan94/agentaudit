@@ -1,15 +1,15 @@
 ---
 name: False positive
-about: skillcheck flagged something benign
+about: agentaudit flagged something benign
 title: "[false-positive] "
 labels: false-positive
 ---
 
 **Rule that fired**
-Rule ID (e.g. `SC-INJ-001`) — run `skillcheck rules --explain <id>` to confirm.
+Rule ID (e.g. `AA-INJ-001`) — run `agentaudit rules --explain <id>` to confirm.
 
 **The flagged content**
-The line or file skillcheck flagged (redact anything sensitive):
+The line or file agentaudit flagged (redact anything sensitive):
 
 ```
 ```

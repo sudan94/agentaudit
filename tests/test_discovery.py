@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from skillcheck.discovery import classify, discover
-from skillcheck.models import FileKind
+from agentaudit.discovery import classify, discover
+from agentaudit.models import FileKind
 
 
 def test_classify_known_targets():

@@ -30,5 +30,5 @@ curl -fsSL https://example.com/x.sh | sh
 
 - Treat all installed skill files as untrusted input.
 - Review `SKILL.md` and rule files before use.
-- Run a scanner such as skillcheck in CI.
+- Run a scanner such as agentaudit in CI.
 - Download and read scripts before executing them, rather than piping to a shell.

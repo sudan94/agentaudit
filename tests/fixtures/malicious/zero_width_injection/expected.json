@@ -1,4 +1,4 @@
 {
-  "must_fire": ["SC-HID-002", "SC-INJ-001"],
+  "must_fire": ["AA-HID-002", "AA-INJ-001"],
   "must_not_fire": []
 }

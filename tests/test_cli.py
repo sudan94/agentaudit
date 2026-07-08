@@ -5,7 +5,7 @@ from pathlib import Path
 
 from typer.testing import CliRunner
 
-from skillcheck.cli import app
+from agentaudit.cli import app
 
 runner = CliRunner()
 MAL = Path(__file__).parent / "fixtures" / "malicious"
@@ -15,17 +15,17 @@ BEN = Path(__file__).parent / "fixtures" / "benign"
 def test_version():
     result = runner.invoke(app, ["version"])
     assert result.exit_code == 0
-    assert "skillcheck" in result.stdout
+    assert "agentaudit" in result.stdout
 
 
 def test_rules_list():
     result = runner.invoke(app, ["rules"])
     assert result.exit_code == 0
-    assert "SC-INJ-001" in result.stdout
+    assert "AA-INJ-001" in result.stdout
 
 
 def test_rules_explain():
-    result = runner.invoke(app, ["rules", "--explain", "SC-INJ-001"])
+    result = runner.invoke(app, ["rules", "--explain", "AA-INJ-001"])
     assert result.exit_code == 0
     assert "override" in result.stdout.lower()
 
@@ -35,7 +35,7 @@ def test_scan_malicious_exit_1():
     assert result.exit_code == 1
     payload = json.loads(result.stdout)
     ids = {f["rule_id"] for f in payload["findings"]}
-    assert "SC-EXF-001" in ids
+    assert "AA-EXF-001" in ids
 
 
 def test_scan_benign_exit_0():

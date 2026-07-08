@@ -23,6 +23,6 @@ Initial release.
   base64/hex obfuscation with one-level re-scan, and MCP permission/hook checks.
 - Optional `--ai` LLM deep-scan (injection-resistant, mocked in tests).
 - Reporters: pretty console (Rich), JSON, SARIF 2.1.0, and markdown.
-- `.skillcheck.yml` config plus inline `<!-- skillcheck: ignore ... -->` suppressions.
+- `.agentaudit.yml` config plus inline `<!-- agentaudit: ignore ... -->` suppressions.
 - CLI: `scan`, `rules`, `rules --explain`, `version`; exit codes 0/1/2.
 - Fixture-driven corpus of malicious and benign samples; 74 tests; self-scan in CI.

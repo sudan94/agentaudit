@@ -4,9 +4,9 @@ from pathlib import Path
 
 import pytest
 
-from skillcheck.models import FileKind, ParsedFile, Severity
-from skillcheck.parsers.markdown import parse_markdown
-from skillcheck.rule_engine import (
+from agentaudit.models import FileKind, ParsedFile, Severity
+from agentaudit.parsers.markdown import parse_markdown
+from agentaudit.rule_engine import (
     RuleEngine,
     RuleLoadError,
     _load_rules_from_text,
@@ -36,9 +36,9 @@ def test_builtin_rules_load_and_are_unique():
 
 
 def test_engine_ignore_rules():
-    engine = RuleEngine(ignore_rules={"SC-INJ-001"})
-    assert engine.get("SC-INJ-001") is None
-    assert engine.get("SC-INJ-003") is not None
+    engine = RuleEngine(ignore_rules={"AA-INJ-001"})
+    assert engine.get("AA-INJ-001") is None
+    assert engine.get("AA-INJ-003") is not None
 
 
 def test_rule_matches_expected_examples():
@@ -65,7 +65,7 @@ def test_example_fence_downgrades_severity():
     engine = RuleEngine()
     raw = "For example:\n```bash\nrm -rf /tmp/build\n```\n"
     parsed = parse_markdown(Path("t.md"), raw)
-    findings = [f for f in engine.analyze(parsed) if f.rule_id == "SC-CMD-002"]
+    findings = [f for f in engine.analyze(parsed) if f.rule_id == "AA-CMD-002"]
     assert findings
     assert findings[0].severity <= Severity.LOW
 
@@ -74,7 +74,7 @@ def test_imperative_fence_keeps_severity():
     engine = RuleEngine()
     raw = "Run this now:\n```bash\nrm -rf /tmp/build\n```\n"
     parsed = parse_markdown(Path("t.md"), raw)
-    findings = [f for f in engine.analyze(parsed) if f.rule_id == "SC-CMD-002"]
+    findings = [f for f in engine.analyze(parsed) if f.rule_id == "AA-CMD-002"]
     assert findings
     assert findings[0].severity is Severity.HIGH
 
@@ -85,7 +85,7 @@ def test_bad_rule_id_rejected():
 
 
 def test_bad_regex_rejected():
-    text = "- id: SC-XX-001\n  severity: high\n  patterns:\n    - regex: '('\n"
+    text = "- id: AA-XX-001\n  severity: high\n  patterns:\n    - regex: '('\n"
     with pytest.raises(RuleLoadError):
         _load_rules_from_text(text, "t")
 
@@ -93,7 +93,7 @@ def test_bad_regex_rejected():
 def test_custom_rules_dir(tmp_path: Path):
     rule_file = tmp_path / "custom.yml"
     rule_file.write_text(
-        "- id: SC-CUS-001\n"
+        "- id: AA-CUS-001\n"
         "  title: Custom test rule\n"
         "  severity: medium\n"
         "  category: injection\n"
@@ -103,6 +103,6 @@ def test_custom_rules_dir(tmp_path: Path):
         encoding="utf-8",
     )
     engine = RuleEngine(extra_dirs=[tmp_path])
-    assert engine.get("SC-CUS-001") is not None
+    assert engine.get("AA-CUS-001") is not None
     parsed = parse_markdown(Path("t.md"), "this has a forbidden-token in it")
-    assert any(f.rule_id == "SC-CUS-001" for f in engine.analyze(parsed))
+    assert any(f.rule_id == "AA-CUS-001" for f in engine.analyze(parsed))

@@ -1,4 +1,4 @@
 {
-  "must_fire": ["SC-MCP-006", "SC-MCP-005"],
+  "must_fire": ["AA-MCP-006", "AA-MCP-005"],
   "must_not_fire": []
 }

@@ -5,9 +5,9 @@ from pathlib import Path
 
 from rich.console import Console
 
-from skillcheck.models import Finding, ScanResult, Severity
-from skillcheck.reporters import console as console_reporter
-from skillcheck.reporters import json_reporter, markdown_reporter, sarif
+from agentaudit.models import Finding, ScanResult, Severity
+from agentaudit.reporters import console as console_reporter
+from agentaudit.reporters import json_reporter, markdown_reporter, sarif
 
 
 def _result():
@@ -16,42 +16,42 @@ def _result():
         files_scanned=3,
         duration_ms=42,
         findings=[
-            Finding("SC-INJ-001", Severity.HIGH, "injection", Path("SKILL.md"), "override", line=7, column=1, snippet="ignore all previous"),
-            Finding("SC-MCP-005", Severity.INFO, "mcp", Path(".claude/settings.json"), "hook", line=3),
+            Finding("AA-INJ-001", Severity.HIGH, "injection", Path("SKILL.md"), "override", line=7, column=1, snippet="ignore all previous"),
+            Finding("AA-MCP-005", Severity.INFO, "mcp", Path(".claude/settings.json"), "hook", line=3),
         ],
     )
 
 
 def test_json_reporter_roundtrip():
     payload = json.loads(json_reporter.render(_result()))
-    assert payload["tool"] == "skillcheck"
+    assert payload["tool"] == "agentaudit"
     assert payload["files_scanned"] == 3
     assert payload["counts"]["high"] == 1
-    assert payload["findings"][0]["rule_id"] == "SC-INJ-001"
+    assert payload["findings"][0]["rule_id"] == "AA-INJ-001"
 
 
 def test_sarif_shape():
     payload = json.loads(sarif.render(_result()))
     assert payload["version"] == "2.1.0"
     run = payload["runs"][0]
-    assert run["tool"]["driver"]["name"] == "skillcheck"
+    assert run["tool"]["driver"]["name"] == "agentaudit"
     assert run["results"][0]["level"] == "error"
     assert run["results"][0]["locations"][0]["physicalLocation"]["region"]["startLine"] == 7
 
 
 def test_markdown_reporter_has_table():
     md = markdown_reporter.render(_result())
-    assert "skillcheck report" in md
+    assert "agentaudit report" in md
     assert "| Severity |" in md
-    assert "SC-INJ-001" in md
+    assert "AA-INJ-001" in md
 
 
 def test_console_reporter_renders():
     capture = Console(record=True, width=100)
     console_reporter.render(_result(), console=capture)
     text = capture.export_text()
-    assert "skillcheck" in text
-    assert "SC-INJ-001" in text
+    assert "agentaudit" in text
+    assert "AA-INJ-001" in text
     assert "HIGH" in text
 
 

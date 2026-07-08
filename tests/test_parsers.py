@@ -2,10 +2,10 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from skillcheck.models import FileKind
-from skillcheck.parsers import parse_file
-from skillcheck.parsers.jsonyaml import find_line, strip_jsonc
-from skillcheck.parsers.markdown import line_in_fence, parse_markdown
+from agentaudit.models import FileKind
+from agentaudit.parsers import parse_file
+from agentaudit.parsers.jsonyaml import find_line, strip_jsonc
+from agentaudit.parsers.markdown import line_in_fence, parse_markdown
 
 
 def test_markdown_frontmatter_and_lines():

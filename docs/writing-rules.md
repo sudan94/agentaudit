@@ -1,19 +1,19 @@
 # Writing detection rules
 
-skillcheck's Layer 2 is a YAML rule engine. A rule is a declarative set of
+agentaudit's Layer 2 is a YAML rule engine. A rule is a declarative set of
 regexes plus metadata. Built-in rules live in
-[`src/skillcheck/rules/`](../src/skillcheck/rules/); you can add your own via
+[`src/agentaudit/rules/`](../src/agentaudit/rules/); you can add your own via
 `--rules <dir>` or the `custom_rules_dir` config key.
 
 ## Schema
 
 ```yaml
-- id: SC-INJ-004                # required. SC-<CATEGORY>-<3 digits>, globally unique.
+- id: AA-INJ-004                # required. AA-<CATEGORY>-<3 digits>, globally unique.
   title: Instruction to hide behavior from the user   # required. One line; shown in reports.
   severity: high                # required. high | medium | low | info
   category: injection           # hidden-content | injection | exfiltration | command | mcp | obfuscation
   applies_to: [markdown]        # markdown | json | yaml | all. Which parsed file kinds to scan.
-  description: >                # optional. Shown by `skillcheck rules --explain`.
+  description: >                # optional. Shown by `agentaudit rules --explain`.
     The file instructs the agent to conceal actions or output from the user.
   patterns:                     # required. One or more; a line matching ANY pattern fires the rule.
     - regex: '(?i)\bwithout\s+(telling|informing|notifying)\b'

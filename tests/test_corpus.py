@@ -8,8 +8,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from skillcheck.models import Severity
-from skillcheck.scanner import scan
+from agentaudit.models import Severity
+from agentaudit.scanner import scan
 from tests.conftest import _target_file, load_expected
 
 

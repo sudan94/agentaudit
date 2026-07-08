@@ -1,4 +1,4 @@
-# Contributing to skillcheck
+# Contributing to agentaudit
 
 Thank you for helping make AI agent instructions safer to install. The single
 most valuable contribution is a **new detection rule** — and it's about 10 lines
@@ -6,12 +6,12 @@ of YAML.
 
 ## Contribute a rule in 10 lines
 
-1. Pick the right pack in [`src/skillcheck/rules/`](src/skillcheck/rules/):
+1. Pick the right pack in [`src/agentaudit/rules/`](src/agentaudit/rules/):
    `injection.yml`, `hidden-content.yml`, `exfiltration.yml`, `commands.yml`, `mcp.yml`.
 2. Add a rule:
 
    ```yaml
-   - id: SC-INJ-100          # SC-<CAT>-<3 digits>, unique
+   - id: AA-INJ-100          # AA-<CAT>-<3 digits>, unique
      title: Instruction to disable logging
      severity: high          # high | medium | low | info
      category: injection     # hidden-content | injection | exfiltration | command | mcp | obfuscation
@@ -55,9 +55,9 @@ Guidelines:
   `pyyaml` (and `httpx`, imported only for `--ai`).
 - **Review every regex.** This is a security tool; false positives and false
   negatives both matter. Include both example directions.
-- **Keep it read-only.** skillcheck must never write to a scanned tree.
+- **Keep it read-only.** agentaudit must never write to a scanned tree.
 
 ## Reporting a bypass
 
-Found a way to hide instructions from skillcheck? That's a security issue —
+Found a way to hide instructions from agentaudit? That's a security issue —
 see [SECURITY.md](SECURITY.md).

@@ -1,15 +1,15 @@
 # Rule reference
 
-This page lists skillcheck's built-in detections. Generate the current list at
+This page lists agentaudit's built-in detections. Generate the current list at
 any time with:
 
 ```bash
-skillcheck rules
-skillcheck rules --explain SC-INJ-003
+agentaudit rules
+agentaudit rules --explain AA-INJ-003
 ```
 
 > An auto-generated, always-current version of this reference is planned for
-> v0.2 (`docs autogen`). Until then, `skillcheck rules` is the source of truth.
+> v0.2 (`docs autogen`). Until then, `agentaudit rules` is the source of truth.
 
 ## Categories
 
@@ -24,7 +24,7 @@ skillcheck rules --explain SC-INJ-003
 
 ## Rule ID scheme
 
-`SC-<CAT>-<NNN>` where `<CAT>` is a short category tag (`INJ`, `HID`, `EXF`,
+`AA-<CAT>-<NNN>` where `<CAT>` is a short category tag (`INJ`, `HID`, `EXF`,
 `CMD`, `MCP`, `OBF`, `AI`) and `<NNN>` is a zero-padded number. Rules numbered
 `001–099` are typically YAML rules; analyzer-implemented rules use `100+` or a
-category-specific range. `SC-AI-000` marks findings from the `--ai` deep scan.
+category-specific range. `AA-AI-000` marks findings from the `--ai` deep scan.
