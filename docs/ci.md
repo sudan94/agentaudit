@@ -35,7 +35,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install agentaudit
+      - run: pip install agentaudit-scanner
       # continue-on-error so the SARIF still uploads even when findings exist
       - run: agentaudit scan . --format sarif -o agentaudit.sarif
         continue-on-error: true
@@ -50,7 +50,7 @@ jobs:
 agentaudit:
   image: python:3.12-slim
   script:
-    - pip install agentaudit
+    - pip install agentaudit-scanner
     - agentaudit scan . --fail-on high
 ```
 

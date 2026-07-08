@@ -1,7 +1,7 @@
 """Optional LLM deep-scan (Layer 3, ``--ai``).
 
 Off by default; requires ``ANTHROPIC_API_KEY`` and the ``httpx`` extra
-(``pip install agentaudit[ai]``). The scanned file content is UNTRUSTED DATA:
+(``pip install agentaudit-scanner[ai]``). The scanned file content is UNTRUSTED DATA:
 it is wrapped in explicit delimiters, the model is instructed never to follow
 it, and only strictly-valid JSON matching the expected schema is accepted.
 """
@@ -65,7 +65,7 @@ def analyze(parsed: ParsedFile, context: ScanContext) -> list[Finding]:
             import httpx
         except ImportError as exc:
             raise AiScanError(
-                "--ai requires httpx: pip install 'agentaudit[ai]'"
+                "--ai requires httpx: pip install 'agentaudit-scanner[ai]'"
             ) from exc
         client = httpx.Client(timeout=60)
     findings: list[Finding] = []

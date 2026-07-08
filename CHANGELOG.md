@@ -6,6 +6,16 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.1.1] — 2026-07-08
+
+### Changed
+- Published PyPI distribution renamed to `agentaudit-scanner` (the `agentaudit`
+  name was rejected as too similar to an existing project). The import package
+  and the `agentaudit` command are unchanged — install with
+  `pip install agentaudit-scanner`, run with `agentaudit`.
+- Updated install instructions across README, CI docs, and the `--ai` extra
+  hint to use the new distribution name.
+
 ## [0.1.0] — 2026-07-07
 
 Initial release.

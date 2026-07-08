@@ -9,8 +9,8 @@ It detects prompt injections, hidden instructions, and dangerous permissions
 *before* your agent obeys them.
 
 [![CI](https://github.com/sudan94/agentaudit/actions/workflows/ci.yml/badge.svg)](https://github.com/sudan94/agentaudit/actions/workflows/ci.yml)
-[![PyPI](https://img.shields.io/pypi/v/agentaudit.svg)](https://pypi.org/project/agentaudit/)
-[![Python](https://img.shields.io/pypi/pyversions/agentaudit.svg)](https://pypi.org/project/agentaudit/)
+[![PyPI](https://img.shields.io/pypi/v/agentaudit-scanner.svg)](https://pypi.org/project/agentaudit-scanner/)
+[![Python](https://img.shields.io/pypi/pyversions/agentaudit-scanner.svg)](https://pypi.org/project/agentaudit-scanner/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 ![Scanned by agentaudit](https://img.shields.io/badge/scanned%20by-agentaudit-blue.svg)
 
@@ -30,14 +30,16 @@ behavior from you. **agentaudit reads these files first.**
 ## Quickstart
 
 ```bash
-pip install agentaudit
+pip install agentaudit-scanner
 agentaudit scan .
 ```
+
+> Installs as **`agentaudit-scanner`** on PyPI; the command you run is **`agentaudit`**.
 
 Zero-install with [uv](https://github.com/astral-sh/uv):
 
 ```bash
-uvx agentaudit scan .
+uvx --from agentaudit-scanner agentaudit scan .
 ```
 
 ```
@@ -84,7 +86,7 @@ Run `agentaudit rules` to see every detection rule, or `agentaudit rules --expla
 Or run it directly in any workflow:
 
 ```yaml
-- run: pipx run agentaudit scan . --format sarif -o agentaudit.sarif
+- run: pipx run --spec agentaudit-scanner agentaudit scan . --format sarif -o agentaudit.sarif
 - uses: github/codeql-action/upload-sarif@v3
   with:
     sarif_file: agentaudit.sarif
@@ -96,7 +98,7 @@ Off by default. Adds an LLM auditor on top of the heuristic engine:
 
 ```bash
 export ANTHROPIC_API_KEY=sk-...
-pip install 'agentaudit[ai]'
+pip install 'agentaudit-scanner[ai]'
 agentaudit scan . --ai
 ```
 

@@ -34,7 +34,7 @@ $ agentaudit scan .
 
 ### Core principles (these ARE the marketing)
 1. **Read-only.** Never modifies anything. Safe to run anywhere.
-2. **Zero config.** `pip install agentaudit && agentaudit scan .` — works instantly.
+2. **Zero config.** `pip install agentaudit-scanner && agentaudit scan .` — works instantly.
 3. **Offline by default.** Heuristic engine needs no network, no API key. Optional `--ai` flag adds an LLM deep-scan.
 4. **Minimal dependencies.** Target ≤ 4 runtime deps. The scanner itself must not be a supply-chain risk.
 5. **CI-native.** Meaningful exit codes, JSON/SARIF output, ships as a GitHub Action.
@@ -265,7 +265,7 @@ Performance target: scan a typical repo in < 1s. Compile regexes once; read file
 2. Badges: PyPI version, CI, license, Python versions, "scanned by agentaudit" (dogfood).
 3. **Animated GIF** of `agentaudit scan` catching a hidden injection (record with `vhs`).
 4. "Why" — 4 sentences max.
-5. Quickstart: `pip install agentaudit` → `agentaudit scan .` (also `uvx agentaudit scan .`).
+5. Quickstart: `pip install agentaudit-scanner` → `agentaudit scan .` (also `uvx --from agentaudit-scanner agentaudit scan .`).
 6. "What it catches" — table of categories with one real example each.
 7. GitHub Action snippet (5 lines).
 8. `--ai` deep scan section.

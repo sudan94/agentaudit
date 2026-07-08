@@ -21,9 +21,9 @@ coverage.xml
 # Tooling
 .ruff_cache/
 .mypy_cache/
+.pypirc
 
 # Editors / OS
-.vscode/
 .idea/
 .DS_Store
 Thumbs.db
