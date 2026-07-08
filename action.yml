@@ -1,4 +1,4 @@
-name: agentaudit
+name: AgentAudit Security Scanner
 description: Scan AI agent skills, rule files, and MCP configs for prompt injections and dangerous permissions.
 branding:
   icon: shield
